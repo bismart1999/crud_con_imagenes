@@ -1,0 +1,5 @@
+
+RewriteEngine On #prende las utrls amigables
+RewriteRule ^home$ index.php
+RewriteRule ^acceso$ login.php
+RewriteRule ^administrador$ administrador.php
