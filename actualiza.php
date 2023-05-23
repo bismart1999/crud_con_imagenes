@@ -15,6 +15,7 @@ if ($conn->query($sql)) {
     $_SESSION['color'] = "success";
     $_SESSION['msg'] = "Registro actualizado";
 
+    //Agrege las extensiones de imagenes que desee
     if ($_FILES['poster']['error'] == UPLOAD_ERR_OK) {
         $permitidos = array("image/jpeg", "image/jpeg", "image/png" , "image/webp");
         if (in_array($_FILES['poster']['type'], $permitidos)) {
@@ -46,3 +47,4 @@ if ($conn->query($sql)) {
 
 
 header("Location: $administrador");
+

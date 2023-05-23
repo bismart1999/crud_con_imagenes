@@ -8,10 +8,12 @@
 ## Dependecias
 - Bootstrap v5.2.3
 - Font Awesome Free v6.4.0
+- formsubmit.co (envio de correo)
 
 ## Instrucciones de uso
 - Descargar proyecto
 - Crear base de datos (db_proyecto) e importar archivo ```db_proyecto.sql```
 - Cambiar los datos de acceso en ```config/database.php```
+- Para ingresar a administrador crear un usuario en la base de datos 
 
 

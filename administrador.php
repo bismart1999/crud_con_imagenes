@@ -1,8 +1,8 @@
 <?php
 require 'rutas.php';
 session_start();
-if (isset($_COOKIE['logeo'])) {
-          
+//seccion de logeo con cookies
+if (isset($_COOKIE['logeo'])) {  
 }else{
   header("location:$home");
 }
@@ -10,10 +10,10 @@ require 'config/database.php';
 
 $sqlCatalogo = "SELECT p.id, p.nombre, p.descripcion FROM catalogo AS p";
 $catalogo = $conn->query($sqlCatalogo);
-
 $dir = "posters/";
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">

@@ -1,5 +1,5 @@
 
-RewriteEngine On #prende las utrls amigables
+RewriteEngine On #prende las urls amigables
 RewriteRule ^home$ index.php
 RewriteRule ^acceso$ login.php
 RewriteRule ^administrador$ administrador.php

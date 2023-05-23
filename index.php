@@ -120,7 +120,7 @@ $dir = "posters/";
             rutrum. Curabitur vitae fringilla elit. Sed at nunc congue, cursus erat ac, pellentesque eros. Etiam
             ullamcorper sed lectus sit amet mattis.</h3>
         </div>
-        <!--comienzo imagenes del doom-->
+        <!--comienzo imagenes del dom-->
         <div id="grid-gallery" class="grid-gallery">
           <section class="grid-wrap">
             <ul class="grid">
@@ -163,7 +163,7 @@ $dir = "posters/";
 
             </ul>
           </section>
-          <!--fin imagenes del doom-->
+          <!--fin imagenes del dom-->
 
           <!--seccion imagenes modal-->
           <section class="slideshow">
@@ -248,12 +248,15 @@ $dir = "posters/";
       </div>
       <div class="container">
         <div class="row">
-          <div class="mx-auto px-5">
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
-            <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
+        <div class="mx-auto px-5">
+            <!-- Se uso la api de formsubmit para el envio de correo-->
+            <form action="https://formsubmit.co/your@email.com" method="POST" name="addForm" id="addForm" role="form" class="contactForm">
+              <!-- Moficar "your@email.com" para que envie al corrreo que desee-->
+              
+              <div id="alerta"></div>
+              
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4"
+                <input type="text" require name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4"
                   data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
@@ -268,12 +271,20 @@ $dir = "posters/";
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required"
+                <textarea class="form-control" name="message" id="message" rows="5" data-rule="required"
                   data-msg="Please write something for us" placeholder="Mensaje"></textarea>
                 <div class="validation"></div>
               </div>
-
-              <div class="text-center"><button type="submit" class="contact submit">Enviar</button></div>
+              <div class="text-center">
+                <button type="submit" class="contact submit" onclick="validarFormulario();">Enviar</button>
+              </div>
+              
+              <!-- Nos redirige a la pagina principal una vez que se mando el correo-->
+              <input type="hidden" name="_next" value="http://localhost/proyecto/">
+              <!-- Agregamos el captcha para evitar envio de boots -->
+              
+              <!-- Si se desea quitar el captcha modificar value="false" -->
+              <input type="hidden" name="_captcha" value="true">
             </form>
           </div>
         </div>
@@ -303,6 +314,9 @@ $dir = "posters/";
 
   <!--script para el navbar-->
   <script src="assets/js/app.js"></script>
+
+  <!--script para validar los campos del formulario de contactos-->
+  <script type="text/javascript" src="assets/js/validacion_contacto.js"></script> 
 
   <!-- scripts anteriores a la modificacion -->
   <script src="assets/js/modernizr.js"></script>

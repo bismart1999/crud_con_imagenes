@@ -1,23 +1,19 @@
 <?php
 
 session_start();
-
 require 'rutas.php';
 require 'config/database.php';
-$usuario=$_POST['usuario'];
-$contraseña=$_POST['contraseña'];
+$usuario=$conn->real_escape_string($_POST['usuario']);
+$contraseña=$conn->real_escape_string($_POST['contraseña']);
 $_SESSION['usuario'] = $usuario;
 
-$conexion = mysqli_connect("localhost", "root","","db_proyecto");
 $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' and pass = '$contraseña'";
-
 $resultado = mysqli_query($conn,$sql);
-
 $filas = mysqli_num_rows($resultado);
 
 $codigo_administrador = false;
 if($filas){
-    
+    //Si se desea cambiar el tiempo de logeo tener en cuenta que 3600 estan en segundos
     $codigo_administrador = true;
     setcookie("logeo", $codigo_administrador, time()+3600,"/","");
  	    // $_SESSION['sesion_login']=$_usuario;

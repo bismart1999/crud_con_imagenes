@@ -1,5 +1,5 @@
 <?php
-
+//Elimina las imagenes segun al id y a su extension
 session_start();
 require 'rutas.php';
 require 'config/database.php';
@@ -12,7 +12,6 @@ if ($conn->query($sql)) {
     $dir = "posters";
     $poster = $dir . '/' . $id . '.' . $ext;
     
-
     if (file_exists($poster)) {
         unlink($poster);
     }
